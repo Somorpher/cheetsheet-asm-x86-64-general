@@ -1,2 +1,35 @@
-# cheetsheet-asm-x86-64-general
-x86-64 assembly cheetsheet, syntax intel
+# Cheat Sheet - ASM x86-64 General
+
+### SYS_OPEN RSI FLAGS
+
+| FLAG           | HEX-VALUE       | DEC-VALUE  | BIN-VALUE    | Description                         |
+| -------------- | --------------- | ---------- | ------------ | ----------------------------------- |
+| O_RDONLY       | 0x0             | 0          | 0b0000       | Open for reading only               |
+| O_WRONLY       | 0x1             | 1          | 0b0001       | Open for writing only               |
+| O_RDWR         | 0x2             | 2          | 0b0010       | Open for reading and writing        |
+| O_CREAT        | 0x40            | 64         | 0b0100000    | Create file if it does not exist    |
+| O_EXCL         | 0x80            | 128        | 0b10000000   | Ensure that this call creates the file |
+| O_TRUNC        | 0x200           | 512        | 0b1000000000 | Truncate the file to zero length    |
+| O_APPEND       | 0x400           | 1024       | 0b10000000000| Write operations will append to the end of the file |
+| O_NONBLOCK     | 0x800           | 2048       | 0b100000000000| Open in non-blocking mode          |
+| O_DSYNC        | 0x1000          | 4096       | 0b1000000000000| Write operations will complete when data is physically written |
+| O_RSYNC        | 0x2000          | 8192       | 0b10000000000000| Read operations will complete when data is physically written |
+| O_SYNC         | 0x4000          | 16384      | 0b100000000000000| Write operations will complete when data is written |
+| O_DIRECTORY     | 0x10000        | 65536      | 0b1000000000000000| Fail if the file is not a directory |
+| O_NOFOLLOW     | 0x20000        | 131072     | 0b10000000000000000| Do not follow symbolic links       |
+| O_CLOEXEC      | 0x40000        | 262144     | 0b100000000000000000| Set the close-on-exec flag for the new file descriptor |
+| O_TMPFILE      | 0x200000       | 2097152    | 0b10000000000000000000| Create an unnamed temporary file  |
+
+### SYS_OPEN RDX PERMISSION MODES
+
+| PERMISSION     | OCT-VALUE       | HEX-VALUE  | DEC-VALUE | Description                         |
+| -------------- | --------------- | ---------- | ----------| ----------------------------------- |
+| S_IRUSR        | 0o400           | 0x100      | 256       | Read permission for owner           |
+| S_IWUSR        | 0o200           | 0x80       | 128       | Write permission for owner          |
+| S_IXUSR        | 0o100           | 0x40       | 64        | Execute permission for owner        |
+| S_IRGRP        | 0o40            | 0x20       | 32        | Read permission for group           |
+| S_IWGRP        | 0o20            | 0x10       | 16        | Write permission for group          |
+| S_IXGRP        | 0o10            | 0x8       | 8         | Execute permission for group        |
+| S_IROTH       | 0o4             | 0x4       | 4         | Read permission for others          |
+| S_IWOTH       | 0o2             | 0x2       | 2         | Write permission for others         |
+| S_IXOTH       | 0o1             | 0x1       | 1         | Execute permission for others       |
